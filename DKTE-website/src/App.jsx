@@ -3,6 +3,7 @@ import './App.css'
 import Signup from '../components/Signup'
 import Signin from '../components/Signin'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Homepage from '../components/Homepage'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      <Homepage />
     </>
   )
 }

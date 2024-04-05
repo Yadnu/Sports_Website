@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
         minLength: 3,
         maxLength: 30
     },
+    departmentName: {
+        type: String,
+        enum : ['CSE', 'ETC', 'MECH', 'CIVIL', 'AI/DS', 'AI/ML', 'Text']
+    },
     password:{
         type: String,
         required: true,
@@ -34,7 +38,10 @@ const sportsSchema = new mongoose.Schema({
 })
 const teamSchema = new mongoose.Schema({
     teamName: String,
-    departmentName : String,
+    departmentName : {
+        type: String,
+        enum : ['CSE', 'ETC', 'MECH', 'CIVIL', 'AI/DS', 'AI/ML', 'Text']
+    },
     players: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -44,9 +51,11 @@ const teamSchema = new mongoose.Schema({
 
 
 const User = mongoose.model('User', userSchema);
+const Team = mongoose.model('teamSchema', teamSchema);
+const Sport = mongoose.model('sportsSchema', sportsSchema)
 
 module.exports = {
     User,
-    teamSchema,
-    sportsSchema
+    Team,
+    Sport
 };
