@@ -6,13 +6,7 @@ const { authMiddleware } = require("../middleware");
 const router = express.Router();
 const {Account} = require("../db")
 
-const  signupSchema= zod.object({
-    username: zod.string(),
-    password: zod.string(),
-    firstName: zod.string(),
-    password: zod.string()
-    
-})
+
 const JWT_SECRET = "Ronaldo is GOAT";
 router.post("/signup", async (req, res) => {
     console.log("request initiated");
@@ -45,10 +39,6 @@ router.post("/signup", async (req, res) => {
         message: "User created successfully",
         token: token
     })
-})
-const signinBody = zod.object({
-    username: zod.string().email(),
-    password: zod.string()
 })
 
 router.post("/signin", async (req, res) =>{

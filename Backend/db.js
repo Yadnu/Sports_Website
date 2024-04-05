@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     },
     departmentName: {
         type: String,
-        enum : ['CSE', 'ETC', 'MECH', 'CIVIL', 'AI/DS', 'AI/ML', 'Text']
+        enum : ['CSE', 'ETC', 'MECH', 'CIVIL', 'AI/DS', 'AI/ML', 'TEXT']
     },
     password:{
         type: String,
@@ -43,8 +43,7 @@ const teamSchema = new mongoose.Schema({
         enum : ['CSE', 'ETC', 'MECH', 'CIVIL', 'AI/DS', 'AI/ML', 'Text']
     },
     players: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        userSchema
       }]
 })
 
